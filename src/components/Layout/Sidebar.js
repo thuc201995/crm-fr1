@@ -102,7 +102,7 @@ const navItems = [
   },
   {
     to: '/subject-manager',
-    name: 'subject ',
+    name: 'subjects',
     exact: false,
     Icon: MdSubject,
   },
