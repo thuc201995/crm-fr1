@@ -29,7 +29,7 @@ import {
   PopoverBody,
 } from 'reactstrap';
 import bn from 'utils/bemnames';
-
+import { withRouter } from 'react-router-dom';
 const bem = bn.create('header');
 
 const MdNotificationsActiveWithBadge = withBadge({
@@ -156,7 +156,15 @@ class Header extends React.Component {
                     <ListGroupItem tag="button" action className="border-light">
                       <MdHelp /> Help
                     </ListGroupItem>
-                    <ListGroupItem tag="button" action className="border-light">
+                    <ListGroupItem
+                      tag="button"
+                      action
+                      className="border-light"
+                      onClick={() => {
+                        localStorage.setItem('isLogin', false);
+                        this.props.history.push('/login');
+                      }}
+                    >
                       <MdExitToApp /> Signout
                     </ListGroupItem>
                   </ListGroup>
@@ -170,4 +178,4 @@ class Header extends React.Component {
   }
 }
 
-export default Header;
+export default withRouter(Header);

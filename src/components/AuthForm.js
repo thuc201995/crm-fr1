@@ -2,39 +2,14 @@ import logo200Image from 'assets/img/logo/logo_200.png';
 import PropTypes from 'prop-types';
 import React from 'react';
 import { Button, Form, FormGroup, Input, Label } from 'reactstrap';
-
+import { withRouter, Redirect } from 'react-router-dom';
+import { isLogin } from 'utils/auth';
 class AuthForm extends React.Component {
-  get isLogin() {
-    return this.props.authState === STATE_LOGIN;
-  }
-
-  get isSignup() {
-    return this.props.authState === STATE_SIGNUP;
-  }
-
-  changeAuthState = authState => event => {
-    event.preventDefault();
-
-    this.props.onChangeAuthState(authState);
-  };
-
   handleSubmit = event => {
     event.preventDefault();
+    localStorage.setItem('isLogin', true);
+    this.props.history.push('/');
   };
-
-  renderButtonText() {
-    const { buttonText } = this.props;
-
-    if (!buttonText && this.isLogin) {
-      return 'Login';
-    }
-
-    if (!buttonText && this.isSignup) {
-      return 'Signup';
-    }
-
-    return buttonText;
-  }
 
   render() {
     const {
@@ -48,7 +23,7 @@ class AuthForm extends React.Component {
       children,
       onLogoClick,
     } = this.props;
-
+    if (isLogin()) return <Redirect to="/" />;
     return (
       <Form onSubmit={this.handleSubmit}>
         {showLogo && (
@@ -87,24 +62,10 @@ class AuthForm extends React.Component {
           size="lg"
           className="bg-gradient-theme-left border-0"
           block
-          onClick={this.handleSubmit}>
-          {this.renderButtonText()}
+          onClick={this.handleSubmit}
+        >
+          Login
         </Button>
-
-        <div className="text-center pt-1">
-          <h6>or</h6>
-          <h6>
-            {this.isSignup ? (
-              <a href="#login" onClick={this.changeAuthState(STATE_LOGIN)}>
-                Login
-              </a>
-            ) : (
-              <a href="#signup" onClick={this.changeAuthState(STATE_SIGNUP)}>
-                Signup
-              </a>
-            )}
-          </h6>
-        </div>
 
         {children}
       </Form>
@@ -116,7 +77,6 @@ export const STATE_LOGIN = 'LOGIN';
 export const STATE_SIGNUP = 'SIGNUP';
 
 AuthForm.propTypes = {
-  authState: PropTypes.oneOf([STATE_LOGIN, STATE_SIGNUP]).isRequired,
   showLogo: PropTypes.bool,
   usernameLabel: PropTypes.string,
   usernameInputProps: PropTypes.object,
@@ -128,7 +88,6 @@ AuthForm.propTypes = {
 };
 
 AuthForm.defaultProps = {
-  authState: 'LOGIN',
   showLogo: true,
   usernameLabel: 'Email',
   usernameInputProps: {
@@ -148,4 +107,4 @@ AuthForm.defaultProps = {
   onLogoClick: () => {},
 };
 
-export default AuthForm;
+export default withRouter(AuthForm);

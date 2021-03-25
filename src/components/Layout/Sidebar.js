@@ -25,7 +25,10 @@ import {
   MdViewList,
   MdWeb,
   MdWidgets,
+  MdAssignmentInd,
+  MdSubject,
 } from 'react-icons/md';
+import { AiOutlineUsergroupAdd } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 import {
   // UncontrolledTooltip,
@@ -85,6 +88,24 @@ const navItems = [
   { to: '/cards', name: 'cards', exact: false, Icon: MdWeb },
   { to: '/charts', name: 'charts', exact: false, Icon: MdInsertChart },
   { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },
+  {
+    to: '/admin-manager',
+    name: 'admin manager',
+    exact: false,
+    Icon: MdAssignmentInd,
+  },
+  {
+    to: '/user-manager',
+    name: 'user manager',
+    exact: false,
+    Icon: AiOutlineUsergroupAdd,
+  },
+  {
+    to: '/subject-manager',
+    name: 'subject ',
+    exact: false,
+    Icon: MdSubject,
+  },
 ];
 
 const bem = bn.create('sidebar');

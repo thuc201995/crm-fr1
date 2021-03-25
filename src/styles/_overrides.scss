@@ -5,7 +5,7 @@
 
     &.active {
       color: #fff;
-      background: rgba(255, 255, 255, .23);
+      background: rgba(255, 255, 255, 0.23);
       opacity: 1;
     }
   }
@@ -21,4 +21,13 @@
 
 .badge:empty {
   display: inline-block;
+}
+
+.table-header-vertical-mid {
+  th {
+    vertical-align: middle !important;
+  }
+}
+.no-margin-bottom {
+  margin-bottom: 0 !important;
 }

@@ -1,11 +1,16 @@
-import { STATE_LOGIN, STATE_SIGNUP } from 'components/AuthForm';
+import { STATE_LOGIN } from 'components/AuthForm';
 import GAListener from 'components/GAListener';
-import { EmptyLayout, LayoutRoute, MainLayout } from 'components/Layout';
+import {
+  EmptyLayout,
+  LayoutRoute,
+  MainLayout,
+  PrivateRoute,
+} from 'components/Layout';
 import PageSpinner from 'components/PageSpinner';
 import AuthPage from 'pages/AuthPage';
 import React from 'react';
 import componentQueries from 'react-component-queries';
-import { BrowserRouter, Redirect, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Redirect, Switch } from 'react-router-dom';
 import './styles/reduction.scss';
 
 const AlertPage = React.lazy(() => import('pages/AlertPage'));
@@ -24,6 +29,9 @@ const ProgressPage = React.lazy(() => import('pages/ProgressPage'));
 const TablePage = React.lazy(() => import('pages/TablePage'));
 const TypographyPage = React.lazy(() => import('pages/TypographyPage'));
 const WidgetPage = React.lazy(() => import('pages/WidgetPage'));
+const AdminManagerPage = React.lazy(() => import('pages/AdminManagerPage'));
+const UserManagerPage = React.lazy(() => import('pages/UserManagerPage'));
+const SubjectManagerPage = React.lazy(() => import('pages/SubjectManagerPage'));
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -45,35 +53,67 @@ class App extends React.Component {
             />
             <LayoutRoute
               exact
-              path="/signup"
+              path="/admin"
               layout={EmptyLayout}
               component={props => (
-                <AuthPage {...props} authState={STATE_SIGNUP} />
+                <AuthPage {...props} authState={STATE_LOGIN} />
               )}
             />
 
             <MainLayout breakpoint={this.props.breakpoint}>
               <React.Suspense fallback={<PageSpinner />}>
-                <Route exact path="/" component={DashboardPage} />
-                <Route exact path="/login-modal" component={AuthModalPage} />
-                <Route exact path="/buttons" component={ButtonPage} />
-                <Route exact path="/cards" component={CardPage} />
-                <Route exact path="/widgets" component={WidgetPage} />
-                <Route exact path="/typography" component={TypographyPage} />
-                <Route exact path="/alerts" component={AlertPage} />
-                <Route exact path="/tables" component={TablePage} />
-                <Route exact path="/badges" component={BadgePage} />
-                <Route
+                <PrivateRoute exact path="/" component={DashboardPage} />
+                <PrivateRoute
+                  exact
+                  path="/login-modal"
+                  component={AuthModalPage}
+                />
+                <PrivateRoute exact path="/buttons" component={ButtonPage} />
+                <PrivateRoute exact path="/cards" component={CardPage} />
+                <PrivateRoute exact path="/widgets" component={WidgetPage} />
+                <PrivateRoute
+                  exact
+                  path="/typography"
+                  component={TypographyPage}
+                />
+                <PrivateRoute exact path="/alerts" component={AlertPage} />
+                <PrivateRoute exact path="/tables" component={TablePage} />
+                <PrivateRoute exact path="/badges" component={BadgePage} />
+                <PrivateRoute
                   exact
                   path="/button-groups"
                   component={ButtonGroupPage}
                 />
-                <Route exact path="/dropdowns" component={DropdownPage} />
-                <Route exact path="/progress" component={ProgressPage} />
-                <Route exact path="/modals" component={ModalPage} />
-                <Route exact path="/forms" component={FormPage} />
-                <Route exact path="/input-groups" component={InputGroupPage} />
-                <Route exact path="/charts" component={ChartPage} />
+                <PrivateRoute
+                  exact
+                  path="/dropdowns"
+                  component={DropdownPage}
+                />
+                <PrivateRoute exact path="/progress" component={ProgressPage} />
+                <PrivateRoute exact path="/modals" component={ModalPage} />
+                <PrivateRoute exact path="/forms" component={FormPage} />
+                <PrivateRoute
+                  exact
+                  path="/input-groups"
+                  component={InputGroupPage}
+                />
+                <PrivateRoute
+                  exact
+                  path="/admin-manager"
+                  component={AdminManagerPage}
+                />
+                <PrivateRoute
+                  exact
+                  path="/user-manager"
+                  component={UserManagerPage}
+                />
+                <PrivateRoute
+                  exact
+                  path="/subject-manager"
+                  component={SubjectManagerPage}
+                />
+
+                <PrivateRoute exact path="/charts" component={ChartPage} />
               </React.Suspense>
             </MainLayout>
             <Redirect to="/" />
