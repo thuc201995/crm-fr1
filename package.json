@@ -13,6 +13,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-chartjs-2": "^2.7.4",
+    "react-codemod": "^5.4.3",
     "react-component-queries": "^2.3.0",
     "react-d3-map": "^0.8.3",
     "react-dom": "^16.8.4",

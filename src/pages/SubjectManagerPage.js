@@ -171,15 +171,16 @@ const SubjectManagerPage = () => {
                   <UncontrolledDropdown>
                     <DropdownToggle caret>Manager Filter</DropdownToggle>
                     <DropdownMenu right className="overflow-auto">
-                      {filterList.map(filters => {
+                      {filterList.map((filters, index) => {
                         return (
-                          <DropdownItem>
+                          <DropdownItem key={index}>
                             {filters.map(item => {
                               return (
                                 <Button
                                   outline
                                   color="primary"
                                   className="mr-1 text-capitalize "
+                                  key={item}
                                 >
                                   {item}
                                 </Button>
