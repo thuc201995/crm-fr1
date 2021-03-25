@@ -22,6 +22,7 @@ app.get('/*', function (req, res) {
 const server = spdy.createServer(options, app);
 const serverHttp = http.createServer(httpApp);
 httpApp.get('*', function (req, res) {
+  console.log(req.headers.host);
   res.redirect('https://' + req.headers.host + ':1111' + req.url);
 });
 
