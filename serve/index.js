@@ -22,11 +22,11 @@ app.get('/*', function (req, res) {
 const server = spdy.createServer(options, app);
 const serverHttp = http.createServer(httpApp);
 httpApp.get('*', function (req, res) {
-  res.redirect('https://' + req.headers.host + ':1112' + req.url);
+  res.redirect('https://' + req.headers.host + req.url);
 });
 
 // // have it listen on 80
-serverHttp.listen(1111);
-server.listen(1112, () => {
+serverHttp.listen(1112);
+server.listen(1111, () => {
   console.log('Running at http://localhost:3000');
 });
