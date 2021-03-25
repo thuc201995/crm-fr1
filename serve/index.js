@@ -22,7 +22,7 @@ app.get('/*', function (req, res) {
 const server = spdy.createServer(options, app);
 const serverHttp = http.createServer(httpApp);
 httpApp.get('*', function (req, res) {
-  res.redirect('https://' + req.headers.host + req.url);
+  res.redirect('https://' + req.headers.host + ':1111' + req.url);
 });
 
 // // have it listen on 80
