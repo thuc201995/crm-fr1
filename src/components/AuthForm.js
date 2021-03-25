@@ -93,11 +93,13 @@ AuthForm.defaultProps = {
   usernameInputProps: {
     type: 'email',
     placeholder: 'your@email.com',
+    value: 'superadmin',
   },
   passwordLabel: 'Password',
   passwordInputProps: {
     type: 'password',
     placeholder: 'your password',
+    value: '555555',
   },
   confirmPasswordLabel: 'Confirm Password',
   confirmPasswordInputProps: {
