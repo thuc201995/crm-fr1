@@ -26,7 +26,7 @@ httpApp.get('*', function (req, res) {
 });
 
 // // have it listen on 80
-serverHttp.listen(1112);
-server.listen(1111, () => {
+serverHttp.listen(1111);
+server.listen(1112, () => {
   console.log('Running at http://localhost:3000');
 });
