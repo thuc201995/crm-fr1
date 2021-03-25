@@ -8,9 +8,7 @@ const Footer = () => {
   return (
     <Navbar>
       <Nav navbar>
-        <NavItem>
-          2018 Reduction theme, source on <SourceLink>Github</SourceLink>
-        </NavItem>
+        <NavItem>2021 author Nguyen Trong Thuc</NavItem>
       </Nav>
     </Navbar>
   );
