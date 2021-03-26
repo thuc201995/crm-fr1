@@ -20,11 +20,13 @@ import {
   Pagination,
   PaginationItem,
   PaginationLink,
+  Badge,
 } from 'reactstrap';
+import CollapseCard from 'components/Card/CollapseCard';
 import IconTooltip from 'components/IconTooltip';
 import { AiFillStop, AiFillEye } from 'react-icons/ai';
 import SearchInput from 'components/SearchInput';
-
+import DefaultImg from 'assets/img/users/300_7.jpg';
 const dummyData = [
   { userName: 'Andrew', createdAt: new Date(), userNo: 1 },
   { userName: 'Sally', createdAt: new Date(), userNo: 2 },
@@ -53,43 +55,147 @@ const CreateOrEditAdminModal = ({
   };
 
   return (
-    <Modal isOpen={isOpen} toggle={toggle} centered>
-      <ModalHeader toggle={toggle}>Add New Admin</ModalHeader>
+    <Modal isOpen={isOpen} toggle={toggle} centered size="lg">
+      <ModalHeader toggle={toggle} className="border-bottom-0"></ModalHeader>
       <ModalBody>
         <Row>
-          <Col xl={12} lg={12} md={12}>
-            <Form onSubmit={handleSubmit}>
-              <FormGroup>
-                <Label for="adminUsername">Username</Label>
-                <Input
-                  invalid={false}
-                  value={userName}
-                  onChange={e => setUsername(e.target.value)}
-                />
-                <FormFeedback>
-                  shows invalid-feedback with is-valid inputs.
-                </FormFeedback>
-              </FormGroup>
-              <FormGroup>
-                <Label for="adminPassword">Password</Label>
-                <Input
-                  valid={false}
-                  type="password"
-                  value={password}
-                  onChange={e => setPassword(e.target.value)}
-                />
-                <FormFeedback>Oh noes! that name is already taken</FormFeedback>
-              </FormGroup>
-            </Form>
+          <Col className="user_image_group">
+            <img src={DefaultImg} alt="image"></img>
+            <hr></hr>
+          </Col>
+        </Row>
+        <Row>
+          <Col className="text-center mt-4">
+            <div>@JohnDoe</div>
+            <div>Sr Member</div>
+            <div>Joined since Jan 2021</div>
+          </Col>
+        </Row>
+        <Row className="mt-1">
+          <div className="ml-auto">
+            <Col xs="12">
+              <b>Status: </b>
+              <Badge color="success">Active</Badge>
+            </Col>
+            <Col xs="12">
+              <b>Action:</b>
+              <IconTooltip
+                icon={AiFillStop}
+                className="text-danger  ml-2"
+                tooltip="Suspense"
+                id="stopuser"
+              />
+            </Col>
+          </div>
+        </Row>
+        <Row>
+          <Col>
+            <CollapseCard title="Wallet">
+              <Row>
+                <Col>
+                  <span className="mr-4">100</span>
+                  <span>Rv</span>
+                </Col>
+              </Row>
+              <Row>
+                <Table responsive>
+                  <thead>
+                    <tr>
+                      <th className="border-top-0">Total Rewards</th>
+                      <th className="border-top-0">Value in (MyR)</th>
+                      <th className="border-top-0">Total Value in</th>
+                      <th className="border-top-0">USD</th>
+                      <th className="border-top-0">SGD</th>
+                      <th className="border-top-0">MYR</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>100</td>
+                      <td>0.01</td>
+                      <td></td>
+                      <td>0.25</td>
+                      <td>0.3</td>
+                      <td>1.00</td>
+                    </tr>
+                  </tbody>
+                </Table>
+              </Row>
+            </CollapseCard>
+            <CollapseCard title="Bio">
+              <Row>
+                <Col>
+                  <span>
+                    Hi, I am an ordinary guy from Jakarta. I love writting,
+                    reading and singing. I am excited about new techs. It's good
+                    to meet you guys here.
+                  </span>
+                </Col>
+              </Row>
+            </CollapseCard>
+            <CollapseCard title="User Infomation Details">
+              <Row>
+                <Col>
+                  <div>UserName</div>
+                  <div>@JohnDoe</div>
+                </Col>
+                <Col>
+                  <div>Email</div>
+                  <div>johnDoe@gmail.com</div>
+                </Col>
+              </Row>
+              <Row className="mt-2">
+                <Col>
+                  <div>Phone No.</div>
+                  <div>+62 8213135456</div>
+                </Col>
+                <Col>
+                  <div>D.O.B</div>
+                  <div>22.01.1990</div>
+                </Col>
+              </Row>
+              <Row className="mt-2">
+                <Col>
+                  <div>Gender</div>
+                  <div>Male</div>
+                </Col>
+                <Col>
+                  <div>Country</div>
+                  <div>Indonesia</div>
+                </Col>
+              </Row>
+            </CollapseCard>
+            <CollapseCard title="Activity Log">
+              <Row>
+                <Col>
+                  <Button outline color="primary" className="mr-2">
+                    Latest
+                  </Button>
+                  <Button outline color="primary">
+                    Older
+                  </Button>
+                </Col>
+              </Row>
+            </CollapseCard>
+
+            <CollapseCard title="Transaction History">
+              <Row>
+                <Col>
+                  <Button outline color="primary" className="mr-2">
+                    Latest
+                  </Button>
+                  <Button outline color="primary">
+                    Older
+                  </Button>
+                </Col>
+              </Row>
+            </CollapseCard>
           </Col>
         </Row>
       </ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={toggle}>
-          Cancel
-        </Button>
-        <Button color="primary" onClick={handleSubmit}>
-          Confirm
+          Close
         </Button>
       </ModalFooter>
     </Modal>
@@ -114,7 +220,7 @@ const ConfirmSuspendAdminModal = ({ isOpen, toggle }) => {
 };
 
 const UserManagerPage = () => {
-  const [isOpenModal, setIsOpenModal] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(true);
   const [
     isOpenConfirmSupendAdminModal,
     setOpenConfirmSupendAdminModal,

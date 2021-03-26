@@ -157,7 +157,7 @@ const AdminManagerPage = () => {
               </Button>
             </CardHeader>
             <CardBody>
-              <Table size="sm" bordered>
+              <Table size="sm" bordered responsive>
                 <thead>
                   <tr>
                     <th>No.</th>
@@ -175,26 +175,30 @@ const AdminManagerPage = () => {
                         <td>{userName}</td>
                         <td>{createdAt.toLocaleString()}</td>
                         <td>
-                          <IconTooltip
-                            icon={MdEdit}
-                            className="text-primary  mr-1"
-                            tooltip="Edit"
-                            id="editAdmin"
-                            onClick={() => seteditIndex(index)}
-                          />
-                          <IconTooltip
-                            icon={AiFillStop}
-                            className="text-warning  mr-1"
-                            tooltip="Suspense"
-                            id="suspendAdmin"
-                            onClick={() => setOpenConfirmSupendAdminModal(true)}
-                          />
-                          <IconTooltip
-                            icon={MdDeleteForever}
-                            className="text-danger"
-                            tooltip="Delete"
-                            id="deleteAdmin"
-                          />
+                          <div className="d-inline-flex">
+                            <IconTooltip
+                              icon={MdEdit}
+                              className="text-primary  mr-1"
+                              tooltip="Edit"
+                              id="editAdmin"
+                              onClick={() => seteditIndex(index)}
+                            />
+                            <IconTooltip
+                              icon={AiFillStop}
+                              className="text-warning  mr-1"
+                              tooltip="Suspense"
+                              id="suspendAdmin"
+                              onClick={() =>
+                                setOpenConfirmSupendAdminModal(true)
+                              }
+                            />
+                            <IconTooltip
+                              icon={MdDeleteForever}
+                              className="text-danger"
+                              tooltip="Delete"
+                              id="deleteAdmin"
+                            />
+                          </div>
                         </td>
                       </tr>
                     );

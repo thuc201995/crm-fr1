@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'utils/propTypes';
-import propTypes from '../utils/propTypes';
 import { UncontrolledTooltip } from 'reactstrap';
 const IconTooltip = ({ icon: Icon, id, tooltip, size, ...props }) => {
   return (
@@ -15,9 +14,9 @@ const IconTooltip = ({ icon: Icon, id, tooltip, size, ...props }) => {
 
 IconTooltip.propsType = {
   icon: PropTypes.component.isRequired,
-  id: propTypes.string.isRequired,
-  tooltip: propTypes.string.isRequired,
-  size: propTypes.string,
+  id: PropTypes.string.isRequired,
+  tooltip: PropTypes.string.isRequired,
+  size: PropTypes.string,
 };
 IconTooltip.defaultProps = {
   size: '1.25em',

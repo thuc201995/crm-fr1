@@ -1,0 +1,16 @@
+.user_image_group {
+  position: relative;
+  text-align: center;
+  img {
+    z-index: 10;
+    position: relative;
+    width: 150px;
+  }
+  hr {
+    position: absolute;
+    top: 63%;
+    border-top: 1px solid #00000047;
+    width: calc(100% - 2em);
+    z-index: 1;
+  }
+}
