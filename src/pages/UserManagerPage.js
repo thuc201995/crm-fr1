@@ -136,31 +136,31 @@ const CreateOrEditAdminModal = ({
             <CollapseCard title="User Infomation Details">
               <Row>
                 <Col>
-                  <div>UserName</div>
+                  <b>UserName</b>
                   <div>@JohnDoe</div>
                 </Col>
                 <Col>
-                  <div>Email</div>
+                  <b>Email</b>
                   <div>johnDoe@gmail.com</div>
                 </Col>
               </Row>
               <Row className="mt-2">
                 <Col>
-                  <div>Phone No.</div>
+                  <b>Phone No.</b>
                   <div>+62 8213135456</div>
                 </Col>
                 <Col>
-                  <div>D.O.B</div>
+                  <b>D.O.B</b>
                   <div>22.01.1990</div>
                 </Col>
               </Row>
               <Row className="mt-2">
                 <Col>
-                  <div>Gender</div>
+                  <b>Gender</b>
                   <div>Male</div>
                 </Col>
                 <Col>
-                  <div>Country</div>
+                  <b>Country</b>
                   <div>Indonesia</div>
                 </Col>
               </Row>
