@@ -27,7 +27,7 @@ import {
   MdAssignmentInd,
   MdSubject,
 } from 'react-icons/md';
-import { AiOutlineUsergroupAdd } from 'react-icons/ai';
+import { AiOutlineUsergroupAdd, AiOutlineWallet } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 import {
   // UncontrolledTooltip,
@@ -84,9 +84,9 @@ const pageContents = [
 
 const navItems = [
   { to: '/', name: 'dashboard', exact: true, Icon: MdDashboard },
-  { to: '/cards', name: 'cards', exact: false, Icon: MdWeb },
-  { to: '/charts', name: 'charts', exact: false, Icon: MdInsertChart },
-  { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },
+  // { to: '/cards', name: 'cards', exact: false, Icon: MdWeb },
+  // { to: '/charts', name: 'charts', exact: false, Icon: MdInsertChart },
+  // { to: '/widgets', name: 'widgets', exact: false, Icon: MdWidgets },
   {
     to: '/admin-manager',
     name: 'admin manager',
@@ -104,6 +104,12 @@ const navItems = [
     name: 'subjects',
     exact: false,
     Icon: MdSubject,
+  },
+  {
+    to: '/wallet-manager',
+    name: 'wallet',
+    exact: false,
+    Icon: AiOutlineWallet,
   },
 ];
 
@@ -161,8 +167,8 @@ class Sidebar extends React.Component {
                 </BSNavLink>
               </NavItem>
             ))}
-
-            <NavItem
+            {/* dev */}
+            {/* <NavItem
               className={bem.e('nav-item')}
               onClick={this.handleClick('Components')}
             >
@@ -183,8 +189,8 @@ class Sidebar extends React.Component {
                   }}
                 />
               </BSNavLink>
-            </NavItem>
-            <Collapse isOpen={this.state.isOpenComponents}>
+            </NavItem> */}
+            {/* <Collapse isOpen={this.state.isOpenComponents}>
               {navComponents.map(({ to, name, exact, Icon }, index) => (
                 <NavItem key={index} className={bem.e('nav-item')}>
                   <BSNavLink
@@ -200,9 +206,9 @@ class Sidebar extends React.Component {
                   </BSNavLink>
                 </NavItem>
               ))}
-            </Collapse>
+            </Collapse> */}
 
-            <NavItem
+            {/* <NavItem
               className={bem.e('nav-item')}
               onClick={this.handleClick('Contents')}
             >
@@ -223,8 +229,8 @@ class Sidebar extends React.Component {
                   }}
                 />
               </BSNavLink>
-            </NavItem>
-            <Collapse isOpen={this.state.isOpenContents}>
+            </NavItem> */}
+            {/* <Collapse isOpen={this.state.isOpenContents}>
               {navContents.map(({ to, name, exact, Icon }, index) => (
                 <NavItem key={index} className={bem.e('nav-item')}>
                   <BSNavLink
@@ -240,9 +246,9 @@ class Sidebar extends React.Component {
                   </BSNavLink>
                 </NavItem>
               ))}
-            </Collapse>
+            </Collapse> */}
 
-            <NavItem
+            {/* <NavItem
               className={bem.e('nav-item')}
               onClick={this.handleClick('Pages')}
             >
@@ -263,8 +269,8 @@ class Sidebar extends React.Component {
                   }}
                 />
               </BSNavLink>
-            </NavItem>
-            <Collapse isOpen={this.state.isOpenPages}>
+            </NavItem> */}
+            {/* <Collapse isOpen={this.state.isOpenPages}>
               {pageContents.map(({ to, name, exact, Icon }, index) => (
                 <NavItem key={index} className={bem.e('nav-item')}>
                   <BSNavLink
@@ -280,7 +286,8 @@ class Sidebar extends React.Component {
                   </BSNavLink>
                 </NavItem>
               ))}
-            </Collapse>
+            </Collapse> */}
+            {/* dev */}
           </Nav>
         </div>
       </aside>

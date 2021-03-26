@@ -1,0 +1,22 @@
+.subject-filter-menu-item {
+  display: block;
+  width: 100%;
+  padding: 0.25rem 1.5rem;
+  clear: both;
+  font-weight: 400;
+  color: #212529;
+  text-align: inherit;
+  white-space: nowrap;
+  background-color: transparent;
+  border: 0;
+}
+
+@include media-breakpoint-down(sm) {
+  .subject-filter-menu-item {
+    display: flex;
+    flex-wrap: wrap;
+    button:not(:last-child) {
+      margin-bottom: 0.35rem;
+    }
+  }
+}

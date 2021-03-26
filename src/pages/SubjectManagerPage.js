@@ -170,10 +170,10 @@ const SubjectManagerPage = () => {
                 <Col className="d-flex justify-content-end no-margin-bottom ">
                   <UncontrolledDropdown>
                     <DropdownToggle caret>Manager Filter</DropdownToggle>
-                    <DropdownMenu right className="overflow-auto">
+                    <DropdownMenu right className="overflow-auto ">
                       {filterList.map((filters, index) => {
                         return (
-                          <DropdownItem key={index}>
+                          <div key={index} className="subject-filter-menu-item">
                             {filters.map(item => {
                               return (
                                 <Button
@@ -186,7 +186,7 @@ const SubjectManagerPage = () => {
                                 </Button>
                               );
                             })}
-                          </DropdownItem>
+                          </div>
                         );
                       })}
                     </DropdownMenu>

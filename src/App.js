@@ -31,6 +31,7 @@ const WidgetPage = React.lazy(() => import('pages/WidgetPage'));
 const AdminManagerPage = React.lazy(() => import('pages/AdminManagerPage'));
 const UserManagerPage = React.lazy(() => import('pages/UserManagerPage'));
 const SubjectManagerPage = React.lazy(() => import('pages/SubjectManagerPage'));
+const WalletManagerPage = React.lazy(() => import('pages/WalletManagerPage'));
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -101,6 +102,11 @@ class App extends React.Component {
                 exact
                 path="/subject-manager"
                 component={SubjectManagerPage}
+              />
+              <PrivateRoute
+                exact
+                path="/wallet-manager"
+                component={WalletManagerPage}
               />
 
               <PrivateRoute exact path="/charts" component={ChartPage} />

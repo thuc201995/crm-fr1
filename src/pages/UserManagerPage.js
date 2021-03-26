@@ -12,11 +12,6 @@ import {
   ModalBody,
   ModalFooter,
   ModalHeader,
-  Form,
-  FormFeedback,
-  FormGroup,
-  Input,
-  Label,
   Pagination,
   PaginationItem,
   PaginationLink,
@@ -34,26 +29,7 @@ const dummyData = [
   { userName: 'Matthew', createdAt: new Date(), userNo: 4 },
 ];
 
-const CreateOrEditAdminModal = ({
-  isOpen,
-  toggle,
-  isEdit,
-  onSubmit,
-  editValue,
-}) => {
-  const [userName, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  useEffect(() => {
-    if (isEdit) setUsername(editValue.userName);
-  }, [editValue]);
-
-  const handleSubmit = () => {
-    onSubmit({ userName, password });
-    toggle();
-    setUsername('');
-    setPassword('');
-  };
-
+const ViewUserInfo = ({ isOpen, toggle, showSupendUserModal }) => {
   return (
     <Modal isOpen={isOpen} toggle={toggle} centered size="lg">
       <ModalHeader toggle={toggle} className="border-bottom-0"></ModalHeader>
@@ -84,6 +60,7 @@ const CreateOrEditAdminModal = ({
                 className="text-danger  ml-2"
                 tooltip="Suspense"
                 id="stopuser"
+                onClick={showSupendUserModal}
               />
             </Col>
           </div>
@@ -205,8 +182,8 @@ const CreateOrEditAdminModal = ({
 const ConfirmSuspendAdminModal = ({ isOpen, toggle }) => {
   return (
     <Modal isOpen={isOpen} toggle={toggle} centered>
-      <ModalHeader toggle={toggle}>Suspend Admin</ModalHeader>
-      <ModalBody>You are going to suspend this admin.</ModalBody>
+      <ModalHeader toggle={toggle}>Suspend User</ModalHeader>
+      <ModalBody>You are going to suspend this user.</ModalBody>
       <ModalFooter>
         <Button color="secondary" onClick={toggle}>
           Cancel
@@ -220,10 +197,10 @@ const ConfirmSuspendAdminModal = ({ isOpen, toggle }) => {
 };
 
 const UserManagerPage = () => {
-  const [isOpenModal, setIsOpenModal] = useState(true);
+  const [isOpenModal, setIsOpenModal] = useState(false);
   const [
-    isOpenConfirmSupendAdminModal,
-    setOpenConfirmSupendAdminModal,
+    isOpenConfirmSupendUserModal,
+    setOpenConfirmSupendUserModal,
   ] = useState(false);
   const [data, setData] = useState(dummyData);
   const [editIndex, seteditIndex] = useState('');
@@ -233,21 +210,6 @@ const UserManagerPage = () => {
       setIsOpenModal(true);
     }
   }, [editIndex]);
-  const handleAddOrEditData = ({ userName }) => {
-    if (isEdit) {
-      setData([
-        ...data.slice(0, editIndex),
-        { ...data[editIndex], userName },
-        ...data.slice(editIndex + 1),
-      ]);
-      seteditIndex('');
-    } else {
-      setData([
-        ...data,
-        { userName, createdAt: new Date(), userNo: data.length + 1 },
-      ]);
-    }
-  };
 
   return (
     <Page
@@ -323,7 +285,7 @@ const UserManagerPage = () => {
                             className="text-danger  mr-1"
                             tooltip="Suspense"
                             id="suspendUser"
-                            onClick={() => setOpenConfirmSupendAdminModal(true)}
+                            onClick={() => setOpenConfirmSupendUserModal(true)}
                           />
                         </td>
                       </tr>
@@ -373,17 +335,17 @@ const UserManagerPage = () => {
           </Card>
         </Col>
       </Row>
-      <CreateOrEditAdminModal
+      <ViewUserInfo
         isOpen={isOpenModal}
         toggle={() => setIsOpenModal(!isOpenModal)}
-        onSubmit={handleAddOrEditData}
         isEdit={isEdit}
         editValue={data[editIndex]}
+        showSupendUserModal={() => setOpenConfirmSupendUserModal(true)}
       />
       <ConfirmSuspendAdminModal
-        isOpen={isOpenConfirmSupendAdminModal}
+        isOpen={isOpenConfirmSupendUserModal}
         toggle={() =>
-          setOpenConfirmSupendAdminModal(!isOpenConfirmSupendAdminModal)
+          setOpenConfirmSupendUserModal(!isOpenConfirmSupendUserModal)
         }
       />
     </Page>
