@@ -27,6 +27,7 @@ import {
   MdAssignmentInd,
   MdSubject,
 } from 'react-icons/md';
+import { SiGoogleanalytics } from 'react-icons/si';
 import { AiOutlineUsergroupAdd, AiOutlineWallet } from 'react-icons/ai';
 import { NavLink } from 'react-router-dom';
 import {
@@ -111,6 +112,12 @@ const navItems = [
     exact: false,
     Icon: AiOutlineWallet,
   },
+  {
+    to: '/analytic',
+    name: 'analytic',
+    exact: false,
+    Icon: SiGoogleanalytics,
+  },
 ];
 
 const bem = bn.create('sidebar');
@@ -189,8 +196,8 @@ class Sidebar extends React.Component {
                   }}
                 />
               </BSNavLink>
-            </NavItem> */}
-            {/* <Collapse isOpen={this.state.isOpenComponents}>
+            </NavItem>
+            <Collapse isOpen={this.state.isOpenComponents}>
               {navComponents.map(({ to, name, exact, Icon }, index) => (
                 <NavItem key={index} className={bem.e('nav-item')}>
                   <BSNavLink
@@ -206,9 +213,9 @@ class Sidebar extends React.Component {
                   </BSNavLink>
                 </NavItem>
               ))}
-            </Collapse> */}
+            </Collapse>
 
-            {/* <NavItem
+            <NavItem
               className={bem.e('nav-item')}
               onClick={this.handleClick('Contents')}
             >
@@ -229,8 +236,8 @@ class Sidebar extends React.Component {
                   }}
                 />
               </BSNavLink>
-            </NavItem> */}
-            {/* <Collapse isOpen={this.state.isOpenContents}>
+            </NavItem>
+            <Collapse isOpen={this.state.isOpenContents}>
               {navContents.map(({ to, name, exact, Icon }, index) => (
                 <NavItem key={index} className={bem.e('nav-item')}>
                   <BSNavLink
@@ -246,9 +253,9 @@ class Sidebar extends React.Component {
                   </BSNavLink>
                 </NavItem>
               ))}
-            </Collapse> */}
+            </Collapse>
 
-            {/* <NavItem
+            <NavItem
               className={bem.e('nav-item')}
               onClick={this.handleClick('Pages')}
             >
@@ -269,8 +276,8 @@ class Sidebar extends React.Component {
                   }}
                 />
               </BSNavLink>
-            </NavItem> */}
-            {/* <Collapse isOpen={this.state.isOpenPages}>
+            </NavItem>
+            <Collapse isOpen={this.state.isOpenPages}>
               {pageContents.map(({ to, name, exact, Icon }, index) => (
                 <NavItem key={index} className={bem.e('nav-item')}>
                   <BSNavLink

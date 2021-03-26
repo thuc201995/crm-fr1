@@ -1,11 +1,25 @@
 .card-img-left {
   border-radius: 0;
-  border-top-left-radius: calc(.25rem - 1px);
-  border-bottom-left-radius: calc(.25rem - 1px);
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
 }
 
 .card-img-right {
   border-radius: 0;
-  border-top-right-radius: calc(.25rem - 1px);
-  border-bottom-right-radius: calc(.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+  border-bottom-right-radius: calc(0.25rem - 1px);
+}
+
+.card-with-border {
+  border-radius: 1rem;
+  .card-header {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+  .card-body {
+    min-height: 100px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+  }
 }
