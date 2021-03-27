@@ -34,6 +34,7 @@ const SubjectManagerPage = React.lazy(() => import('pages/SubjectManagerPage'));
 const WalletManagerPage = React.lazy(() => import('pages/WalletManagerPage'));
 const Analytic = React.lazy(() => import('pages/Analytic'));
 const AdminSecurityPage = React.lazy(() => import('pages/AdminSecurityPage'));
+const AdminDashboardPage = React.lazy(() => import('pages/AdminDashboardPage'));
 
 const getBasename = () => {
   return `/${process.env.PUBLIC_URL.split('/').pop()}`;
@@ -59,7 +60,7 @@ class App extends React.Component {
 
           <MainLayout breakpoint={this.props.breakpoint}>
             <React.Suspense fallback={<PageSpinner />}>
-              <PrivateRoute exact path="/" component={DashboardPage} />
+              <PrivateRoute exact path="/dashboard" component={DashboardPage} />
               <PrivateRoute
                 exact
                 path="/login-modal"
@@ -117,6 +118,7 @@ class App extends React.Component {
                 path="/admin-security"
                 component={AdminSecurityPage}
               />
+              <PrivateRoute exact path="/" component={AdminDashboardPage} />
             </React.Suspense>
           </MainLayout>
           <Redirect to="/" />
