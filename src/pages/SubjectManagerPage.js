@@ -25,12 +25,7 @@ import IconTooltip from 'components/IconTooltip';
 import { MdEdit, MdDeleteForever } from 'react-icons/md';
 import { AiFillStop } from 'react-icons/ai';
 import SearchInput from 'components/SearchInput';
-import {
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from 'reactstrap';
+import { UncontrolledDropdown, DropdownToggle, DropdownMenu } from 'reactstrap';
 
 const dummyData = [
   { userName: 'Andrew', createdAt: new Date(), userNo: 1 },

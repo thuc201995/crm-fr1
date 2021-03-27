@@ -26,6 +26,7 @@ import {
   MdWidgets,
   MdAssignmentInd,
   MdSubject,
+  MdSecurity,
 } from 'react-icons/md';
 import { SiGoogleanalytics } from 'react-icons/si';
 import { AiOutlineUsergroupAdd, AiOutlineWallet } from 'react-icons/ai';
@@ -117,6 +118,12 @@ const navItems = [
     name: 'analytic',
     exact: false,
     Icon: SiGoogleanalytics,
+  },
+  {
+    to: '/admin-security',
+    name: 'admin security',
+    exact: false,
+    Icon: MdSecurity,
   },
 ];
 
