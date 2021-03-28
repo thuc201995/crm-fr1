@@ -211,7 +211,10 @@ const AdminManagerPage = () => {
       </Row>
       <CreateOrEditAdminModal
         isOpen={isOpenModal}
-        toggle={() => setIsOpenModal(!isOpenModal)}
+        toggle={() => {
+          setIsOpenModal(!isOpenModal);
+          seteditIndex('');
+        }}
         onSubmit={handleAddOrEditData}
         isEdit={isEdit}
         editValue={data[editIndex]}

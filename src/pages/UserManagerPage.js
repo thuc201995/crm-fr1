@@ -337,7 +337,10 @@ const UserManagerPage = () => {
       </Row>
       <ViewUserInfo
         isOpen={isOpenModal}
-        toggle={() => setIsOpenModal(!isOpenModal)}
+        toggle={() => {
+          setIsOpenModal(!isOpenModal);
+          seteditIndex('');
+        }}
         isEdit={isEdit}
         editValue={data[editIndex]}
         showSupendUserModal={() => setOpenConfirmSupendUserModal(true)}

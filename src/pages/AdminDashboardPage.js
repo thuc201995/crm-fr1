@@ -183,7 +183,10 @@ const AdminDashboardPage = () => {
       </Row>
       <EditReward
         isOpen={isOpenRewardModal}
-        toggle={() => setIsOpenRewardModal(!isOpenRewardModal)}
+        toggle={() => {
+          setIsOpenRewardModal(!isOpenRewardModal);
+          setEditModalName('');
+        }}
         modalName={editModalName}
       />
     </Page>
